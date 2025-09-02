@@ -1,0 +1,136 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  font-family: var(--font-sans);
+  background-color: var(--bg-site);
+  color: var(--text-primary);
+}
+
+footer {
+  position: fixed;
+  bottom: 20px;
+  display: flex;
+  gap: 15px;
+  align-items: baseline;
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+
+a {
+  color: var(--text-primary);
+  font-weight: bold;
+}
+
+button {
+  all: unset; 
+  cursor: pointer;
+}
+
+#game-container {
+  z-index: 50;
+  display: grid;
+  grid-template-columns: repeat(10, 70px);
+  gap: 10px;
+  background-color: #171717b2;
+  border: solid 1px;
+  border-color: var(--bg-secondary);
+  border-radius: 2px;
+  padding: 15px;
+  backdrop-filter: blur(10px);
+}
+
+.game-menu {
+  display: flex;
+  gap: 3px;
+  flex-direction: column;
+  justify-items: center;
+}
+
+.menu-option {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  padding: 5px;
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+}
+
+.menu-option:hover {
+  background-color: var(--bg-secondary);
+}
+
+.main-wrapper {
+  display: flex;
+  gap: 15px;
+}
+
+/* shake animation */
+@keyframes shake {
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%,
+  80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%,
+  60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+.apply-shake {
+  animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+/* bg colors */
+.color {
+  top: -570px;
+  left: -470px;
+  position: absolute;
+  height: 1000px;
+  width: 1000px;
+  background-image: transparent;
+  transition: background-image 0.4s ease;
+  pointer-events: none;
+}
+
+.color.success {
+  background-image: radial-gradient(closest-side, #064e3bab, black);
+  animation: successFlash 2.5s ease;
+}
+
+.color.fail {
+  background-image: radial-gradient(closest-side, #9f123a7c, black);
+}
+
+@keyframes successFlash {
+  0% {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  30% {
+    opacity: 1;
+    transform: scale(1.02);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}

@@ -1,0 +1,33 @@
+.cell {
+  display: flex;
+  width: 70px;
+  height: 70px;
+  justify-content: center;
+  align-items: center;
+  color: transparent;
+  background-color: var(--bg-secondary);
+  border-radius: 8px;
+  border-top: solid 1px;
+  border-color: #303030;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.11);
+  transition: all 0.3s;
+  cursor: pointer;
+  font-size: 40px;
+  font-weight: bolder;
+}
+
+.cell:hover {
+  transform: scale(1.1);
+}
+
+.cell.revealed {
+  border: none;
+  background-color: var(--board-green);
+  color: var(--text-secary);
+  box-shadow: inset 0px 5px 5px rgba(0, 0, 0, 0.356);
+}
+
+.cell.bomb.revealed {
+  background-color: var(--board-red);
+  color: var(--text-primary);
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="Minesweeper">
+  
+  <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
+  <title>Minesweeper 💣</title>
+
+  <link rel="stylesheet" href="assets/css/root.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/board.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="main-wrapper">
+    <div id="game-container">
+      <!-- inject by JS -->
+    </div>
+    <div class="game-menu">
+      <button id="restart-game">
+        <i data-lucide="rotate-ccw" class="menu-option"></i>
+      </button>
+      <button id="mute-game">
+        <i data-lucide="volume-2" class="menu-option volume-icon"></i>
+        <i data-lucide="volume-off" class="menu-option volume-off-icon" style="display:none;"></i>
+      </button>
+    </div>
+  </div>
+ <footer>
+    <p>Luis Gustavo R.C. 2025</p>
+    <p>made for an academic course</p>
+    <a target="_blank" href="https://github.com/spantalho/minesweeper">source</a>
+    <a target="_blank" href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 (public domain)</a>
+  </footer>
+  <div class="color"></div>
+</body>
+
+<script src="https://unpkg.com/lucide@latest"></script>
+<script src="assets/js/index.js"></script>
+<script>
+  $(document).ready(function() {
+    lucide.createIcons()
+  })
+</script>
+
+</html>
