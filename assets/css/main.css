@@ -3,6 +3,11 @@
   padding: 0;
 }
 
+html {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
 body {
   position: relative;
   display: grid;
@@ -11,16 +16,20 @@ body {
   font-family: var(--font-sans);
   background-color: var(--bg-site);
   color: var(--text-primary);
+  overflow-x: hidden;
 }
 
 footer {
-  position: fixed;
-  bottom: 20px;
   display: flex;
+  bottom: 20px;
   gap: 15px;
-  align-items: baseline;
+  align-items: center;
   color: var(--text-secondary);
   font-size: 12px;
+}
+
+ul {
+  list-style-type: none;
 }
 
 a {
@@ -29,24 +38,31 @@ a {
 }
 
 button {
-  all: unset; 
+  all: unset;
   cursor: pointer;
+}
+
+nav {
+  padding: 0px 5px 5px 10px;
+  border-left: solid 1px;
+  border-color: var(--border-color);
 }
 
 #game-container {
   z-index: 50;
   display: grid;
-  grid-template-columns: repeat(10, 70px);
-  gap: 10px;
+  grid-template-columns: repeat(10, minmax(clamp(30px, 6vw, 70px), 1fr));
+  gap: clamp(4px, 1vw, 10px);
   background-color: #171717b2;
   border: solid 1px;
   border-color: var(--bg-secondary);
   border-radius: 2px;
-  padding: 15px;
+  padding: clamp(0px, 6vw, 15px);
   backdrop-filter: blur(10px);
 }
 
 .game-menu {
+  z-index: 50;
   display: flex;
   gap: 3px;
   flex-direction: column;
@@ -54,8 +70,8 @@ button {
 }
 
 .menu-option {
-  width: 28px;
-  height: 28px;
+  width: clamp(10px, 6vw, 28px);
+  height: clamp(10px, 6vw, 28px);
   border-radius: 8px;
   padding: 5px;
   color: var(--text-secondary);
@@ -69,34 +85,6 @@ button {
 .main-wrapper {
   display: flex;
   gap: 15px;
-}
-
-/* shake animation */
-@keyframes shake {
-  10%,
-  90% {
-    transform: translate3d(-1px, 0, 0);
-  }
-
-  20%,
-  80% {
-    transform: translate3d(2px, 0, 0);
-  }
-
-  30%,
-  50%,
-  70% {
-    transform: translate3d(-4px, 0, 0);
-  }
-
-  40%,
-  60% {
-    transform: translate3d(4px, 0, 0);
-  }
-}
-
-.apply-shake {
-  animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
 }
 
 /* bg colors */
@@ -132,5 +120,33 @@ button {
   100% {
     opacity: 0;
     transform: scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+  footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .main-wrapper {
+    flex-direction: column-reverse;
+  }
+
+  .game-menu {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  nav {
+    border: none;
+  }
+
+  nav ul {
+    display: flex;
+    gap: 10px;
   }
 }
